@@ -1,0 +1,48 @@
+function onClickFindIndex() {
+
+            var input = document.getElementById("inputArr").value;
+            var myArr = input.split(' ');
+            var index = document.getElementById("inputIndex").value;
+            IndexChecker(index, myArr);
+
+        }
+
+        function IndexChecker(index, myArr) {
+            if (index == 0) {
+                jsConsole.writeLine("You chose the first index so there is only right neighbour");
+                IsFirstChecker(index, myArr);
+            }
+            else if (index == myArr.Length - 1) {
+                jsConsole.writeLine("You chose the last index so there is only left neighbour");
+                IslastChecker(index, myArr);
+            }
+            else {
+                jsConsole.writeLine("there are two neighbours of your index");
+                IsFirstChecker(index, myArr);
+                IsLastChecker(index, myArr);
+
+            }
+        }
+        function IsFirstChecker(index, myArr) {
+            if (myArr[index] < myArr[index + 1]) {
+                jsConsole.writeLine("The right index is bigger than the first index : " + myArr[index] + " < " + myArr[index + 1]);
+            }
+            else if (myArr[index] > myArr[index + 1]) {
+                jsConsole.writeLine("The right index is smaller than the index: " + myArr[index] + " > " + myArr[index + 1]);
+            }
+            else if (myArr[index] == myArr[index + 1]) {
+                jsConsole.writeLine("The right index is equal to the index: " + myArr[index] + " = " + myArr[index + 1]);
+            }
+        }
+
+        function IsLastChecker(index, myArr) {
+            if (myArr[index] < myArr[index - 1]) {
+                jsConsole.writeLine("The left index is bigger than your index : " + myArr[index] + " < " + myArr[index - 1]);
+            }
+            else if (myArr[index] > myArr[index - 1]) {
+                jsConsole.writeLine("The left index is smaller than your index: " + myArr[index] + " > " + myArr[index - 1]);
+            }
+            else if (myArr[index] == myArr[index - 1]) {
+                jsConsole.writeLine("The left index is equal to your index: " + myArr[index] + " = " + myArr[index - 1]);
+            }
+        }
